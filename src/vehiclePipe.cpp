@@ -1246,7 +1246,7 @@ CCustomCarEnvMapPipeline__CustomPipeRenderCB_Env(RwResEntry *repEntry, void *obj
 	CustomSpecMapPipeMaterialData *specData;
 	RpMaterial *material;
 	RwUInt32 materialFlags;
-	RwBool hasEnv1, hasEnv2, hasSpec, hasAlpha;
+	RwBool hasEnv1, hasEnv2, hasSpec, hasAlpha, hasCarPaint1, hasCarPaint2, hasCarPaint3, hasCarPaint4;
 	struct {
 		float fresnel;
 		float power;
