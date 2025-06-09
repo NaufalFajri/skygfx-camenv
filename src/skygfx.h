@@ -125,6 +125,23 @@ struct Config {
 	float envSpecularityMult;
 	float envPower;
 	float envFresnel;
+
+	float envCarPaint1Fresnel;
+	float envCarPaint1Power;
+	float envCarPaint1ShininessMult;
+	float envCarPaint1SpecularityMult;
+	float envCarPaint2Fresnel;
+	float envCarPaint2Power;
+	float envCarPaint2ShininessMult;
+	float envCarPaint2SpecularityMult;
+	float envCarPaint3Fresnel;
+	float envCarPaint3Power;
+	float envCarPaint3ShininessMult;
+	float envCarPaint3SpecularityMult;
+	float envCarPaint4Fresnel;
+	float envCarPaint4Power;
+	float envCarPaint4ShininessMult;
+	float envCarPaint4SpecularityMult;
 };
 extern int numConfigs;
 extern int currentConfig;

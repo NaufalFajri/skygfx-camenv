@@ -1331,6 +1331,10 @@ CCustomCarEnvMapPipeline__CustomPipeRenderCB_Env(RwResEntry *repEntry, void *obj
 		pipeSetTexture(material->texture, 0);
 
 		hasAlpha = instancedData->vertexAlpha == true || instancedData->material->color.alpha != 255;
+		hasCarPaint1 = instancedData->material->color.red == 60 && instancedData->material->color.green == 255 && instancedData->material->color.blue == 0 && instancedData->material->color.alpha == 255;
+		hasCarPaint2 = instancedData->material->color.red == 255 && instancedData->material->color.green == 0 && instancedData->material->color.blue == 175 && instancedData->material->color.alpha == 255;
+		hasCarPaint3 = instancedData->material->color.red == 0 && instancedData->material->color.green == 255 && instancedData->material->color.blue == 255 && instancedData->material->color.alpha == 255;
+		hasCarPaint4 = instancedData->material->color.red == 255 && instancedData->material->color.green == 0 && instancedData->material->color.blue == 255 && instancedData->material->color.alpha == 255;
 		RwRenderStateSet(rwRENDERSTATEVERTEXALPHAENABLE, (void*)hasAlpha);
 
 		envData = *GETENVMAP(material);
@@ -1354,12 +1358,39 @@ CCustomCarEnvMapPipeline__CustomPipeRenderCB_Env(RwResEntry *repEntry, void *obj
 				// Don't let this get too high because strong reflections make the vehicle darker
 //				float l = min(CCustomCarEnvMapPipeline__m_EnvMapLightingMult, 0.5f);
 //				fxParams.shininess *= 15.0f * l * config->envShininessMult;
-				fxParams.shininess *= 8.0f * config->envShininessMult;
 			}
 
 			if(hasSpec){
 				surfProps.specular = specData->specularity;
-				surfProps.specular *= 3.0f * config->envSpecularityMult;
+			}
+
+			if (hasCarPaint1) {
+				fxParams.shininess *= 1.0f * config->envCarPaint1ShininessMult;
+				surfProps.specular *= 1.0f * config->envCarPaint1SpecularityMult;
+				fxParams.fresnel = config->envCarPaint1Fresnel;
+				fxParams.power = config->envCarPaint1Power;
+			}
+			else if (hasCarPaint2) {
+				fxParams.shininess *= 1.0f * config->envCarPaint2ShininessMult;
+				surfProps.specular *= 1.0f * config->envCarPaint2SpecularityMult;
+				fxParams.fresnel = config->envCarPaint2Fresnel;
+				fxParams.power = config->envCarPaint2Power;
+			}
+			else if (hasCarPaint3) {
+				fxParams.shininess *= 1.0f * config->envCarPaint3ShininessMult;
+				surfProps.specular *= 1.0f * config->envCarPaint3SpecularityMult;
+				fxParams.fresnel = config->envCarPaint3Fresnel;
+				fxParams.power = config->envCarPaint3Power;
+			}
+			else if (hasCarPaint4) {
+				fxParams.shininess *= 1.0f * config->envCarPaint4ShininessMult;
+				surfProps.specular *= 1.0f * config->envCarPaint4SpecularityMult;
+				fxParams.fresnel = config->envCarPaint4Fresnel;
+				fxParams.power = config->envCarPaint4Power;
+			}
+			else {
+				fxParams.shininess *= 1.0f * config->envShininessMult;
+				surfProps.specular *= 1.0f * config->envSpecularityMult;
 			}
 		}
 

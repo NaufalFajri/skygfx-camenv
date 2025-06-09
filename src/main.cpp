@@ -1124,6 +1124,23 @@ readIni(int n)
 	c->envPower = readfloat(cfg.get("SkyGfx", "envPower", ""), 20.0);
 	c->envFresnel = readfloat(cfg.get("SkyGfx", "envFresnel", ""), 0.7);
 	c->envMapSize = readint(cfg.get("SkyGfx", "envMapSize", ""), 256);
+	c->envCarPaint1Fresnel = readfloat(cfg.get("SkyGfx", "envCarPaint1Fresnel", ""), 0.7);
+	c->envCarPaint1Power = readfloat(cfg.get("SkyGfx", "envCarPaint1Power", ""), 20.0);
+	c->envCarPaint1ShininessMult = readfloat(cfg.get("SkyGfx", "envCarPaint1ShininessMult", ""), 1.0);
+	c->envCarPaint1SpecularityMult = readfloat(cfg.get("SkyGfx", "envCarPaint1SpecularityMult", ""), 1.0);
+	c->envCarPaint2Fresnel = readfloat(cfg.get("SkyGfx", "envCarPaint2Fresnel", ""), 0.7);
+	c->envCarPaint2Power = readfloat(cfg.get("SkyGfx", "envCarPaint2Power", ""), 20.0);
+	c->envCarPaint2ShininessMult = readfloat(cfg.get("SkyGfx", "envCarPaint2ShininessMult", ""), 1.0);
+	c->envCarPaint2SpecularityMult = readfloat(cfg.get("SkyGfx", "envCarPaint2SpecularityMult", ""), 1.0);
+	c->envCarPaint3Fresnel = readfloat(cfg.get("SkyGfx", "envCarPaint3Fresnel", ""), 0.7);
+	c->envCarPaint3Power = readfloat(cfg.get("SkyGfx", "envCarPaint3Power", ""), 20.0);
+	c->envCarPaint3ShininessMult = readfloat(cfg.get("SkyGfx", "envCarPaint3ShininessMult", ""), 1.0);
+	c->envCarPaint3SpecularityMult = readfloat(cfg.get("SkyGfx", "envCarPaint3SpecularityMult", ""), 1.0);
+	c->envCarPaint4Fresnel = readfloat(cfg.get("SkyGfx", "envCarPaint4Fresnel", ""), 0.7);
+	c->envCarPaint4Power = readfloat(cfg.get("SkyGfx", "envCarPaint4Power", ""), 20.0);
+	c->envCarPaint4ShininessMult = readfloat(cfg.get("SkyGfx", "envCarPaint4ShininessMult", ""), 1.0);
+	c->envCarPaint4SpecularityMult = readfloat(cfg.get("SkyGfx", "envCarPaint4SpecularityMult", ""), 1.0);
+
 	int i = 1;
 	while(i < c->envMapSize) i *= 2;
 	c->envMapSize = i;
